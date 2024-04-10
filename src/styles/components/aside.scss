@@ -1,0 +1,40 @@
+.aside {
+  @extend %flex-column;
+  width: 30%;
+  height: 100%;
+  gap: 1rem;
+
+  &__group {
+    @extend %flex-column;
+    gap: 0.5rem;
+
+    &__heading {
+      @extend %flex-row;
+
+      p {
+        color: $gray;
+        font-size: 0.75rem;
+      }
+
+      img {
+        cursor: pointer;
+
+        &:hover {
+          background: $light-gray;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &__text {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .aside {
+    width: 100%;
+  }
+}

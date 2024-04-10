@@ -1,0 +1,14 @@
+.wallet {
+  @extend %flex-row;
+  align-items: stretch;
+  width: 100%;
+  height: max-content;
+}
+
+@media (max-width: 1250px) {
+  .wallet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
