@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   logo,
   home,
@@ -9,8 +10,24 @@ import {
   chat,
   menu,
 } from "../assets";
+import { useUserQuery } from "../requests/useUser";
 
 const Header = () => {
+  const [userData, setUserData] = useState({
+    email: "",
+    first_name: "",
+    last_name: "",
+  });
+
+  const { isPending, isError, data } = useUserQuery();
+
+  useEffect(() => {
+    if (data) {
+      const { status, data: userData } = data;
+      if (status == 200) setUserData(userData);
+    }
+  }, [data]);
+
   return (
     <div className="header">
       <img src={logo} alt="logo" className="header__logo" />
@@ -48,7 +65,7 @@ const Header = () => {
 
         <div className="header__group__toggle">
           <div className="header__group__toggle__circle">
-            <p className="username">OJ</p>
+            <p className="username">{`${userData.first_name[0]}${userData.last_name[0]}`}</p>
           </div>
           <img src={menu} alt="menu icon" />
         </div>
