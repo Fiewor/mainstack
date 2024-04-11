@@ -1,0 +1,127 @@
+.modal {
+  @extend %flex-column;
+  justify-content: space-between;
+  width: 100dvw;
+  height: 100dvh;
+  padding: 1.5rem;
+
+  z-index: 2;
+  position: absolute;
+
+  &__top {
+    @extend %flex-column;
+    gap: 2rem;
+
+    &__header {
+      @extend %flex-row;
+
+      p {
+        font-weight: 900;
+        font-size: 2rem;
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+
+    &__range {
+      @extend %flex-row;
+      gap: 0.5rem;
+
+      &__item {
+        padding: 1rem 2rem;
+        border: 1px solid $gray;
+        border-radius: 3rem;
+        font-weight: 400;
+      }
+    }
+
+    &__date {
+      @extend %flex-column;
+      gap: 0.5rem;
+
+      &__header {
+        font-weight: 700;
+      }
+
+      &__group {
+        @extend %flex-row;
+        gap: 1rem;
+
+        > * {
+          background: $light-gray;
+          color: #000;
+        }
+      }
+    }
+
+    &__transaction {
+      @extend %flex-column;
+      gap: 0.5rem;
+      width: 100%;
+
+      &__header {
+        font-weight: 700;
+      }
+    }
+
+    &__status {
+      &__header {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    @extend %flex-row;
+    gap: 1rem;
+    align-items: center;
+
+    &__button {
+      padding: 1rem 2rem;
+      width: 50%;
+      border-radius: 3rem;
+
+      &.primary {
+        background: #fff;
+        border: 1px solid $gray;
+        color: #000;
+
+        &:hover,
+        &:focus {
+          background: $light-gray;
+        }
+      }
+
+      &.secondary {
+        background: #000;
+        border: none;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+          background: #2a2a2a;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .modal {
+    &__top {
+      &__header {
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      &__range {
+        &__item {
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+}

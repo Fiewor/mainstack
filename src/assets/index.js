@@ -17,3 +17,4 @@ export { default as successful } from "./successful.svg";
 export { default as unsuccessful } from "./unsuccessful.svg";
 export { default as download } from "./download.svg";
 export { default as expand } from "./expand.svg";
+export { default as close } from "./close.svg";

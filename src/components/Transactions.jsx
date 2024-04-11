@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { expand, download, successful, unsuccessful } from "../assets";
 import { useTransactionsQuery } from "../requests/useTransactionsQuery";
+import { ModalContext } from "../App";
 
 const Transactions = () => {
   const [transactionData, setTransactionData] = useState([]);
   const { isPending, isError, data } = useTransactionsQuery();
+  const { showModal, setShowModal } = useContext(ModalContext);
 
   useEffect(() => {
     if (data) {
@@ -24,7 +26,7 @@ const Transactions = () => {
         </div>
 
         <div className="transactions__header__filter-group">
-          <div>
+          <div onClick={() => setShowModal(!showModal)}>
             <p>Filter</p>
             <img src={expand} alt="expand icon" />
           </div>
