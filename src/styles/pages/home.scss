@@ -1,11 +1,11 @@
 .home {
   @extend %flex-column;
   align-items: stretch;
-  margin: 1rem;
 
   &__main {
     @extend %flex-row;
     align-items: flex-start;
+    padding-top: 10dvh; // so the main content isn't hidden behind the header
 
     &__side {
       width: 5%;

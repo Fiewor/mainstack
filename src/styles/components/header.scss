@@ -1,11 +1,14 @@
 .header {
-  width: 100%;
+  width: 95dvw;
   height: 5dvh;
   padding: 2rem;
-  margin: 0.5rem 1rem 1rem 0.5rem;
+  margin: 1rem;
   box-shadow: 0 2px 2px 2px $light-gray;
   border-radius: 3rem;
   @extend %flex-row;
+  position: fixed;
+  z-index: 1;
+  background: #fff;
 
   &__logo {
     cursor: pointer;
