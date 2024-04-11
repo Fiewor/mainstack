@@ -9,8 +9,6 @@ const Transactions = () => {
   const { showModal, setShowModal } = useContext(ModalContext);
   const { filters } = useContext(FilterContext);
 
-  console.log("filters: ", filters);
-
   let transactionData;
 
   if (data) {
@@ -33,7 +31,9 @@ const Transactions = () => {
       <div className="transactions__header">
         <div className="transactions__header__group">
           <p className="transactions__header__group__text">
-            {filteredData?.length || 0} Transactions
+            {`${filteredData?.length || 0} Transaction${
+              filteredData?.length > 1 ? "s" : ""
+            }`}
           </p>
           <p>Your transactions for the past 7 days</p>
         </div>

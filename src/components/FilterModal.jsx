@@ -72,7 +72,7 @@ const FilterModal = () => {
       filterVals["value"] = status.map((val) => val.toLowerCase()); // convert to lowercase to allow for filtering
     }
     setFilters({ ...filters, ...filterVals });
-    console.log("updated filters: ", { ...filters, ...filterVals });
+    setShowModal(!showModal);
   };
 
   return (
