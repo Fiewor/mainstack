@@ -15,7 +15,7 @@ const Header = () => {
     <div className="header">
       <img src={logo} alt="logo" className="header__logo" />
 
-      <div className="header__group">
+      <div className="header__group one">
         <div className="header__group__item">
           <img src={home} alt="home icon" />
           <p>Home</p>

@@ -59,5 +59,18 @@
 @media (max-width: 1250px) {
   .main {
     width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0;
+
+    &__top {
+      width: 100%;
+      height: max-content;
+    }
+
+    &__bottom {
+      img {
+      }
+    }
   }
 }
