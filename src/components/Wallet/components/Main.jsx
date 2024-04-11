@@ -1,14 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import getWallet from "../../../requests/getWallet";
 import { line } from "../../../assets";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useWalletQuery } from "../../../requests/useWalletQuery";
 
 const Main = () => {
-  const { isPending, error, data } = useQuery({
-    queryKey: ["walletData"],
-    queryFn: getWallet,
-  });
+  const { isPending, isError, data } = useWalletQuery();
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
@@ -29,7 +25,7 @@ const Main = () => {
           <p className="main__top__group__sub-text">
             {isPending
               ? "Fetching..."
-              : error
+              : isError
               ? "Unable to fetch"
               : `USD ${balance}`}
           </p>

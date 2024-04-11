@@ -1,7 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import getWallet from "../../../requests/getWallet";
 import { info } from "../../../assets";
 import { useEffect, useState } from "react";
+import { useWalletQuery } from "../../../requests/useWalletQuery";
 
 const Aside = () => {
   const [figures, setFigures] = useState({
@@ -10,10 +9,7 @@ const Aside = () => {
     pending_payout: 0,
     ledger_balance: 0,
   });
-  const { isPending, error, data } = useQuery({
-    queryKey: ["walletData"],
-    queryFn: getWallet,
-  });
+  const { isPending, isError, data } = useWalletQuery();
 
   useEffect(() => {
     if (data) {

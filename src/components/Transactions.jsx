@@ -1,15 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { CSVLink } from "react-csv";
-import getTransactions from "../requests/getTransactions";
 import { useEffect, useState } from "react";
 import { expand, download, successful, unsuccessful } from "../assets";
+import { useTransactionsQuery } from "../requests/useTransactionsQuery";
 
 const Transactions = () => {
   const [transactionData, setTransactionData] = useState([]);
-  const { isPending, error, data } = useQuery({
-    queryKey: ["transactionData"],
-    queryFn: getTransactions,
-  });
+  const { isPending, isError, data } = useTransactionsQuery();
 
   useEffect(() => {
     if (data) {
@@ -44,7 +39,7 @@ const Transactions = () => {
       <div className="transactions__list">
         {isPending ? (
           <p className="transactions__list__text">Fetching...</p>
-        ) : error ? (
+        ) : isError ? (
           <p className="transactions__list__text">
             Unable to fetch transaction list.
           </p>
