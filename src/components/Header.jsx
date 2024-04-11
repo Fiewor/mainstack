@@ -13,7 +13,7 @@ import {
 const Header = () => {
   return (
     <div className="header">
-      <img src={logo} alt="logo" />
+      <img src={logo} alt="logo" className="header__logo" />
 
       <div className="header__group">
         <div className="header__group__item">
@@ -43,14 +43,14 @@ const Header = () => {
       </div>
 
       <div className="header__group">
-        <img src={notifications} alt="" />
-        <img src={chat} alt="" />
+        <img src={notifications} alt="notifications icon" />
+        <img src={chat} alt="chat icon" />
 
         <div className="header__group__toggle">
           <div className="header__group__toggle__circle">
-            <p>OJ</p>
+            <p className="username">OJ</p>
           </div>
-          <img src={menu} alt="" />
+          <img src={menu} alt="menu icon" />
         </div>
       </div>
     </div>
