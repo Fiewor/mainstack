@@ -41,7 +41,7 @@ const FilterModal = () => {
   const [status, setStatus] = useState([]);
 
   const { showModal, setShowModal } = useContext(ModalContext);
-  const { setFilters } = useContext(FilterContext);
+  const { filters, setFilters } = useContext(FilterContext);
 
   const handleListChange = (event) => {
     const {
@@ -65,7 +65,15 @@ const FilterModal = () => {
     setFilters({});
   };
 
-  const handleApply = () => {};
+  const handleApply = () => {
+    const filterVals = {};
+    if (status.length) {
+      filterVals["name"] = "status";
+      filterVals["value"] = status.map((val) => val.toLowerCase()); // convert to lowercase to allow for filtering
+    }
+    setFilters({ ...filters, ...filterVals });
+    console.log("updated filters: ", { ...filters, ...filterVals });
+  };
 
   return (
     <div className="modal">
