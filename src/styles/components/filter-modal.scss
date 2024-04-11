@@ -56,19 +56,30 @@
       }
     }
 
-    &__transaction {
-      @extend %flex-column;
-      gap: 0.5rem;
-      width: 100%;
+    &__group {
+      @extend %flex-row;
+      gap: 1rem;
+      align-items: stretch;
 
-      &__header {
-        font-weight: 700;
+      div {
+        width: 95%;
+        @extend %flex-column;
       }
-    }
 
-    &__status {
-      &__header {
-        font-weight: 700;
+      &__transaction {
+        @extend %flex-column;
+        gap: 0.5rem;
+        width: 100%;
+
+        &__header {
+          font-weight: 700;
+        }
+      }
+
+      &__status {
+        &__header {
+          font-weight: 700;
+        }
       }
     }
   }
@@ -117,9 +128,21 @@
           font-size: 1.5rem;
         }
       }
+
       &__range {
         &__item {
           padding: 0.5rem 1rem;
+        }
+      }
+
+      &__group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+
+        div {
+          width: 100%;
         }
       }
     }

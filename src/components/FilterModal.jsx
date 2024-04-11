@@ -92,76 +92,84 @@ const FilterModal = () => {
 
           <div className="modal__top__date__group">
             <DatePicker
+              label="Start Date"
               value={startDate}
               onChange={(newValue) => setStartDate(newValue)}
             />
             <DatePicker
+              label="End Date"
               value={endDate}
               onChange={(newValue) => setEndDate(newValue)}
             />
           </div>
         </div>
 
-        <div className="modal__top__transaction">
-          <p className="modal__top__transaction__header">Transaction Type</p>
+        <div className="modal__top__group">
+          <div className="modal__top__group__transaction">
+            <p className="modal__top__group__transaction__header">
+              Transaction Type
+            </p>
 
-          <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">Type</InputLabel>
-            <Select
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
-              multiple
-              value={currListItem}
-              onChange={handleListChange}
-              input={<OutlinedInput label="Select" />}
-              renderValue={(selected) => {
-                if (!selected.length) {
-                  return <em>Select transaction type</em>;
-                }
+            <FormControl sx={{ m: 1, width: 300 }}>
+              <InputLabel id="demo-multiple-checkbox-label">Type</InputLabel>
+              <Select
+                labelId="demo-multiple-checkbox-label"
+                id="demo-multiple-checkbox"
+                multiple
+                value={currListItem}
+                onChange={handleListChange}
+                input={<OutlinedInput label="Select" />}
+                renderValue={(selected) => {
+                  if (!selected.length) {
+                    return <em>Select transaction type</em>;
+                  }
 
-                return selected.join(", ");
-              }}
-              MenuProps={MenuProps}
-            >
-              {transactionList?.map((item) => (
-                <MenuItem key={item} value={item}>
-                  <Checkbox checked={currListItem.indexOf(item) > -1} />
-                  <ListItemText primary={item} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div>
+                  return selected.join(", ");
+                }}
+                MenuProps={MenuProps}
+              >
+                {transactionList?.map((item) => (
+                  <MenuItem key={item} value={item}>
+                    <Checkbox checked={currListItem.indexOf(item) > -1} />
+                    <ListItemText primary={item} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
 
-        <div className="modal__top__status">
-          <p className="modal__top__status__header">Transaction Status</p>
+          <div className="modal__top__group__status">
+            <p className="modal__top__group__status__header">
+              Transaction Status
+            </p>
 
-          <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">Status</InputLabel>
-            <Select
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
-              multiple
-              value={status}
-              onChange={handleStatusChange}
-              input={<OutlinedInput label="Select" />}
-              renderValue={(selected) => {
-                if (!selected.length) {
-                  return <em>Select transaction status</em>;
-                }
+            <FormControl sx={{ m: 1, width: 300 }}>
+              <InputLabel id="demo-multiple-checkbox-label">Status</InputLabel>
+              <Select
+                labelId="demo-multiple-checkbox-label"
+                id="demo-multiple-checkbox"
+                multiple
+                value={status}
+                onChange={handleStatusChange}
+                input={<OutlinedInput label="Select" />}
+                renderValue={(selected) => {
+                  if (!selected.length) {
+                    return <em>Select transaction status</em>;
+                  }
 
-                return selected.join(", ");
-              }}
-              MenuProps={MenuProps}
-            >
-              {statusList?.map((item) => (
-                <MenuItem key={item} value={item}>
-                  <Checkbox checked={status.indexOf(item) > -1} />
-                  <ListItemText primary={item} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+                  return selected.join(", ");
+                }}
+                MenuProps={MenuProps}
+              >
+                {statusList?.map((item) => (
+                  <MenuItem key={item} value={item}>
+                    <Checkbox checked={status.indexOf(item) > -1} />
+                    <ListItemText primary={item} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
         </div>
       </div>
 
