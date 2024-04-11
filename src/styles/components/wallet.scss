@@ -1,5 +1,6 @@
 .wallet {
   @extend %flex-row;
+  gap: 3rem;
   align-items: stretch;
   width: 100%;
   height: max-content;
